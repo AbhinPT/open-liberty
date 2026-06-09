@@ -43,7 +43,7 @@ public class SIPInviteClientTransactionImpl
 	public static final int STATE_CALLING = 0;
 	
 	/**
-	 * retransamission timer for UDP
+	 * retransmission timer for UDP
 	 */
 	private TimerA m_timerA;
 	
@@ -135,7 +135,7 @@ public class SIPInviteClientTransactionImpl
 	
 	
 	/**
-	 * prosses the request in a state machine as stated in RFC 17.2.2
+	 * process the request in a state machine, as stated in RFC 17.2.2
 	 */
 	public synchronized void processRequest(Request sipRequest)
 		throws SipParseException
@@ -189,12 +189,12 @@ public class SIPInviteClientTransactionImpl
                     c_logger.traceDebug(this, "processRequest", 
                                         "Exception in transport exception", exp);
                 }
-			    prossesTransportError();											 					  			
+			    processTransportError();
 			}
 	}
 
 	/**
-	 * prosses the response in a state machine as stated in RFC 17.2.2
+	 * process the response in a state machine as stated in RFC 17.2.2
 	 * 
 	 */
 	public synchronized void processResponse(Response sipResponse) 
@@ -459,9 +459,9 @@ public class SIPInviteClientTransactionImpl
 	}
 
 	/**
-	 *  prosses transport error
+	 *  process transport error
 	 */	
-	public synchronized void prossesTransportError()
+	public synchronized void processTransportError()
 	{
 		destroyTransaction();
 		notifyRequestErrorToUA( getFirstRequest() );
